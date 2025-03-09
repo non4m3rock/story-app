@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+    <title><%= htmlWebpackPlugin.options.title %> | Story App</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <button
+            class="btn btn-warning"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasTop"
+            aria-controls="offcanvasTop"
+          >
+            三
+          </button>
+          <h5 id="offcanvasTopLabel" class="navbar-brand"><%= brandName %></h5>
+          <div
+            class="offcanvas offcanvas-top bg-dark"
+            tabindex="-1"
+            id="offcanvasTop"
+            aria-labelledby="offcanvasTopLabel"
+          >
+            <div class="offcanvas-header">
+              <div class="offcanvas-body"><%= navLinks %></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="card" style="width: 18rem">
+        <img src="..." class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the bulk of the card's
+            content.
+          </p>
+          <a href="#" class="btn btn-warning">Go somewhere</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="main-footer bg-dark">
+        <div class="container px-3 py-4"><%= footerContent %></div>
+      </div>
+    </footer>
+  </body>
+</html>
