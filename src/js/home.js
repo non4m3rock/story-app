@@ -1,3 +1,5 @@
+import moment from 'moment/moment';
+
 const Home = {
   async init() {
     await this._initialData();
@@ -19,12 +21,12 @@ const Home = {
       throw new Error('Parameter stories should be an array.');
     }
 
-    let totalStories = stories.length;
-
     const storyCardsContainer = document.getElementById('storyCards');
     storyCardsContainer.innerHTML = ''; // Clear existing cards
 
     stories.forEach((story) => {
+      const formattedDate = moment(story.createdAt).format('MMMM Do YYYY, h:mm:ss a');
+
       const card = document.createElement('div');
       card.className = 'col-sm row-sm d-flex py-4';
       card.innerHTML = `
@@ -32,6 +34,7 @@ const Home = {
           <img src="${story.photoUrl}" class="card-img-top" alt="${story.name}" />
           <div class="card-body">
             <h5 class="card-title">${story.name}</h5>
+            <p class="card-dates">${formattedDate}</p>
             <p class="card-text">${story.description}</p>
             <a href="#" class="btn btn-warning">Lihat Detail</a>
           </div>
