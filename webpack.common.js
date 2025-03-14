@@ -14,10 +14,10 @@ const htmlWebpackPluginConfig = {
     navLinks: `
      <ul class="nav nav-pills nav-fill">
   <li class="nav-item">
-    <a class="nav-link text-white" href="#">Home</a>
+    <a class="nav-link text-white" href="/">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="#">Add Story</a>
+    <a class="nav-link text-white" href="addstory.html">Add Story</a>
   </li>
   <li class="nav-item">
     <a class="nav-link text-white" href="#">LogIn</a>
@@ -68,6 +68,13 @@ module.exports = {
       title: 'Home',
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/views/home.html'),
+      ...htmlWebpackPluginConfig,
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'Add Story',
+      filename: 'addstory.html',
+      template: path.resolve(__dirname, 'src/views/addstory.html'),
       ...htmlWebpackPluginConfig,
     }),
 
