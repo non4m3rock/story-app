@@ -1,0 +1,16 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.card {
+  @include m.box-shadow(0, 2px, 5px, 0, rgba(0, 0, 0, 0.1));
+  @include m.border-radius(v.$border-radius);
+
+  .card-title {
+    color: v.$primary-color;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+}

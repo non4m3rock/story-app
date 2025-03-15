@@ -1,0 +1,10 @@
+@use 'variables' as v;
+
+body {
+  font-family: v.$main-font;
+  color: v.$text-color;
+}
+
+.btn {
+  @include border-radius(v.$border-radius);
+}

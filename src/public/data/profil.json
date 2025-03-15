@@ -1,0 +1,34 @@
+{
+  "name": "krea studio",
+  "description": "Deskripsi singkat tentang perusahaan atau developer.",
+  "location": "Sulawesi, Konoha",
+  "email": "info@example.com",
+  "website": "https://www.example.com",
+  "image": "/img/logo.png",
+  "social": [
+    {
+      "name": "Facebook",
+      "url": "#",
+      "icon": "facebook",
+      "type": "primary"
+    },
+    {
+      "name": "Twitter",
+      "url": "#",
+      "icon": "twitter",
+      "type": "info"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "#",
+      "icon": "linkedin",
+      "type": "secondary"
+    },
+    {
+      "name": "GitHub",
+      "url": "#",
+      "icon": "github",
+      "type": "dark"
+    }
+  ]
+}

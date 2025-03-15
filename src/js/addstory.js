@@ -1,12 +1,16 @@
 const AddStory = {
   async init() {
     this._setupForm();
+    this._setupBootstrapValidation(); // Tambahkan ini
   },
 
   _setupForm() {
     document.getElementById('addStoryForm').addEventListener('submit', (event) => {
       event.preventDefault();
-      this._addStory();
+      if (document.getElementById('addStoryForm').checkValidity()) {
+        // Hanya panggil _addStory jika formulir valid
+        this._addStory();
+      }
     });
   },
 
@@ -46,6 +50,26 @@ const AddStory = {
     } else {
       alert('Mohon pilih foto.');
     }
+  },
+
+  _setupBootstrapValidation() {
+    (function () {
+      'use strict';
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener(
+          'submit',
+          function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          },
+          false,
+        );
+      });
+    })();
   },
 };
 

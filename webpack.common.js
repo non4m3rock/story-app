@@ -20,7 +20,7 @@ const htmlWebpackPluginConfig = {
     <a class="nav-link text-white" href="addstory.html">Add Story</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="#">LogIn</a>
+    <a class="nav-link text-white" href="profil.html">Profil</a>
   </li>
 </ul>
     `,
@@ -75,6 +75,13 @@ module.exports = {
       title: 'Add Story',
       filename: 'addstory.html',
       template: path.resolve(__dirname, 'src/views/addstory.html'),
+      ...htmlWebpackPluginConfig,
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'Add Story',
+      filename: 'profil.html',
+      template: path.resolve(__dirname, 'src/views/profil.html'),
       ...htmlWebpackPluginConfig,
     }),
 

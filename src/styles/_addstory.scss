@@ -1,0 +1,12 @@
+@use 'variables' as v;
+
+form {
+  .form-control {
+    border-radius: v.$border-radius;
+  }
+
+  .btn-primary {
+    background-color: v.$primary-color;
+    border-color: v.$primary-color;
+  }
+}
