@@ -1,0 +1,9 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+header {
+  @include m.sticky-element(0, v.$navbar-z-index);
+  nav.navbar {
+    background-color: v.$navbar-bg-color;
+  }
+}

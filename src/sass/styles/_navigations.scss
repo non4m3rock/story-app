@@ -1,0 +1,17 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.nav-link {
+  color: v.$nav-link-color;
+  text-decoration: none;
+  padding: 10px 15px;
+  @include m.border-radius(v.$border-radius);
+  @include m.transition(color, v.$transition-duration); // Transisi warna
+
+  &:hover,
+  &:focus {
+    color: v.$nav-link-hover-color;
+    background-color: v.$nav-link-hover-bg;
+    @include m.transition(); // Transisi semua properti
+  }
+}

@@ -1,0 +1,11 @@
+@use 'variables' as v;
+@use 'mixins' as m; // Import _mixins.scss with namespace 'm'
+
+body {
+  font-family: v.$main-font;
+  color: v.$text-color;
+}
+
+.btn {
+  @include m.border-radius(v.$border-radius); // Use namespace 'm'
+}

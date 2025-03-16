@@ -13,8 +13,7 @@ const Profile = {
       this._displayProfile(profileData);
     } catch (error) {
       console.error('Error loading profile data:', error);
-      // Anda dapat menambahkan logika penanganan error lainnya di sini, seperti menampilkan pesan error di halaman.
-      this._displayError('Gagal memuat data profil. Silakan coba lagi.'); // Contoh: menampilkan pesan error di halaman
+      this._displayError('Gagal memuat data profil. Silakan coba lagi.');
     }
   },
 
@@ -28,16 +27,25 @@ const Profile = {
     document.querySelector('.profile-image').src = profileData.image;
 
     const socialLinks = document.querySelector('.social-links');
-    socialLinks.innerHTML = ''; // Clear existing social links
+    socialLinks.innerHTML = '';
 
     if (profileData.social) {
       profileData.social.forEach((social) => {
         const link = document.createElement('a');
         link.href = social.url;
-        link.className = 'btn btn-' + social.type; // Assuming social.type is 'primary', 'info', etc.
+        link.className = `btn btn-${social.type} social-link-item`;
         link.innerHTML = `<i class="fab fa-${social.icon}"></i> ${social.name}`;
         socialLinks.appendChild(link);
       });
+    }
+  },
+
+  _displayError(errorMessage) {
+    const errorMessageElement = document.getElementById('error-message');
+    if (errorMessageElement) {
+      errorMessageElement.textContent = errorMessage;
+    } else {
+      console.error('Error message element not found.');
     }
   },
 };

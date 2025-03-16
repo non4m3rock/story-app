@@ -1,6 +1,9 @@
 // Import our custom CSS
 import '../sass/main.scss';
 
+// Import components
+import './components/index';
+
 // Import javascript file as needed
 import Home from './home';
 import AddStory from './addstory';

@@ -11,20 +11,7 @@ const htmlWebpackPluginConfig = {
   },
   templateParameters: {
     brandName: 'Story App',
-    navLinks: `
-     <ul class="nav nav-pills nav-fill">
-  <li class="nav-item">
-    <a class="nav-link text-white" href="/">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-white" href="addstory.html">Add Story</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-white" href="profil.html">Profil</a>
-  </li>
-</ul>
-    `,
-    footerContent: '<p class="text-center text-white mb-0">&copy;laputo</p>',
+    //     navLinks: `
   },
 };
 

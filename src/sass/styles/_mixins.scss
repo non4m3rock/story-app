@@ -1,0 +1,21 @@
+// Mixin untuk border-radius
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+// Mixin untuk box-shadow
+@mixin box-shadow($x, $y, $blur, $spread, $color) {
+  box-shadow: $x $y $blur $spread $color;
+}
+
+// Mixin untuk transisi
+@mixin transition($property: all, $duration: 0.3s, $timing-function: ease) {
+  transition: $property $duration $timing-function;
+}
+
+// Mixin untuk membuat elemen sticky
+@mixin sticky-element($top: 0, $z-index: 100) {
+  position: sticky;
+  top: $top;
+  z-index: $z-index;
+}

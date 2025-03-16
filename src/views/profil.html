@@ -8,39 +8,16 @@
 
     <title><%= htmlWebpackPlugin.options.title %> | Story App</title>
 
-    <link rel="stylesheet" href="main.css" />
+    <!-- <link rel="stylesheet" href="main.css" /> -->
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <button
-            class="btn btn-warning"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasTop"
-            aria-controls="offcanvasTop"
-          >
-            三
-          </button>
-          <h5 id="offcanvasTopLabel" class="navbar-brand"><%= brandName %></h5>
-          <div
-            class="offcanvas offcanvas-top bg-dark"
-            tabindex="-1"
-            id="offcanvasTop"
-            aria-labelledby="offcanvasTopLabel"
-          >
-            <div class="offcanvas-header">
-              <div class="offcanvas-body"><%= navLinks %></div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <nav-app brandName="<%= brandName %>"></nav-app>
     </header>
 
     <main>
       <div class="container mt-5">
-        <div class="card mb-3">
+        <div class="card mb-3 profile-card">
           <div class="row g-0">
             <div class="col-md-4">
               <img src="" class="img-fluid rounded-start profile-image" alt="Foto Profil" />
@@ -59,12 +36,14 @@
             </div>
           </div>
         </div>
+        <div id="error-message" class="text-danger"></div>
       </div>
     </main>
 
     <footer>
       <div class="main-footer bg-dark">
-        <div class="container px-3 py-4"><%= footerContent %></div>
+        <!-- <div class="container px-3 py-4"></div> -->
+        <footer-app></footer-app>
       </div>
     </footer>
   </body>

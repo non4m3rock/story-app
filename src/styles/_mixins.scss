@@ -1,9 +1,0 @@
-// Mixin untuk border-radius
-@mixin border-radius($radius) {
-  border-radius: $radius;
-}
-
-// Mixin untuk box-shadow
-@mixin box-shadow($x, $y, $blur, $spread, $color) {
-  box-shadow: $x $y $blur $spread $color;
-}

@@ -6,54 +6,23 @@
 
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 
-    <link rel="stylesheet" href="main.css" />
+    <!-- <link rel="stylesheet" href="main.css" /> -->
 
     <title><%= htmlWebpackPlugin.options.title %> | Story App</title>
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <button
-            class="btn btn-warning"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasTop"
-            aria-controls="offcanvasTop"
-          >
-            三
-          </button>
-          <h5 id="offcanvasTopLabel" class="navbar-brand"><%= brandName %></h5>
-          <div
-            class="offcanvas offcanvas-top bg-dark"
-            tabindex="-1"
-            id="offcanvasTop"
-            aria-labelledby="offcanvasTopLabel"
-          >
-            <div class="offcanvas-header">
-              <div class="offcanvas-body"><%= navLinks %></div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <nav-app brandName="<%= brandName %>"></nav-app>
     </header>
 
     <main>
-      <div class="container">
-        <div class="row my-4">
-          <div class="col">
-            <div class="container-fluid">
-              <!-- <span id="numberOfStories"></span> -->
-              <div id="storyCards" class="row row-cols-1 row-cols-md-2"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <card-home classes="bg-light"></card-home>
     </main>
 
     <footer>
       <div class="main-footer bg-dark">
-        <div class="container px-3 py-4"><%= footerContent %></div>
+        <!-- <div class="container px-3 py-4"></div> -->
+        <footer-app></footer-app>
       </div>
     </footer>
   </body>
