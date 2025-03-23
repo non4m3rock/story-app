@@ -1,7 +1,10 @@
 import moment from 'moment/moment';
+import CheckUserAuth from './pages/auth/check-user-auth';
 
 const Home = {
   async init() {
+    CheckUserAuth.checkLoginState();
+
     await this._initialData();
   },
 

@@ -1,5 +1,8 @@
-import { html, nothing } from 'lit';
+import { html } from 'lit';
 import LitWithoutShadowDom from './base/LitWithoutShadowDom';
+import Utils from '../utils/utils';
+import Config from '../config/config';
+import CheckUserAuth from '../pages/auth/check-user-auth';
 
 class NavLinkAuth extends LitWithoutShadowDom {
   render() {
@@ -23,10 +26,16 @@ class NavLinkAuth extends LitWithoutShadowDom {
           <span id="nameUserLogged"></span>
         </a>
         <ul class="dropdown-menu">
-          <a class="dropdown-item" id="userLogOut"> Log Out </a>
+          <a class="dropdown-item" id="userLogOut" @click=${this._userLogout}> Keluar </a>
         </ul>
       </li>
     `;
+  }
+
+  _userLogOut(event) {
+    event.preventDefault();
+    Utils.destroyUserToken(Config.USER_TOKEN_KEY);
+    CheckUserAuth.checkLoginState();
   }
 }
 

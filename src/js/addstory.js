@@ -1,5 +1,8 @@
+// import CheckUserAuth from './pages/auth/check-user-auth';
+
 const AddStory = {
   async init() {
+    // CheckUserAuth.checkLoginState();
     // this._setupForm();
     this._setupBootstrapValidation(); // Tambahkan ini
   },

@@ -1,5 +1,9 @@
+// import CheckUserAuth from './pages/auth/check-user-auth';
+
 const Profile = {
   async init() {
+    // CheckUserAuth.checkLoginState();
+
     this._loadProfileData();
   },
 

@@ -15,7 +15,7 @@ class NavLinks extends LitWithoutShadowDom {
           <a class="nav-link text-white" href="profil.html">Profil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/auth/login.html">Masuk</a>
+          <nav-link-auth class="d-none" id="userLoggedMenu"></nav-link-auth>
         </li>
       </ul>
     `;
