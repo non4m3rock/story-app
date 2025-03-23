@@ -8,12 +8,17 @@ import './components/index';
 import Home from './home';
 import AddStory from './addstory';
 import Profil from './profil';
+import Login from './pages/auth/login';
+import Register from './pages/auth/register';
 import * as bootstrap from 'bootstrap';
 
 const routes = {
   '/': Home,
-  '/src/views/addstory.html': AddStory,
-  '/src/views/profil.html': Profil,
+  '/addstory.html': AddStory,
+  '/profil.html': Profil,
+
+  '/auth/login.html': Login,
+  '/auth/register.html': Register,
 };
 
 const detectRoute = () => routes[window.location.pathname];

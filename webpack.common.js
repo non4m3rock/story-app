@@ -7,7 +7,7 @@ const htmlWebpackPluginConfig = {
   meta: {
     viewport:
       'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0',
-    'theme-color': '#B8D576',
+    'theme-color': '#4285f4',
   },
   templateParameters: {
     brandName: 'Story App',
@@ -69,6 +69,20 @@ module.exports = {
       title: 'Add Story',
       filename: 'profil.html',
       template: path.resolve(__dirname, 'src/views/profil.html'),
+      ...htmlWebpackPluginConfig,
+    }),
+
+    // Auth pages
+    new HtmlWebpackPlugin({
+      title: 'Login',
+      filename: 'auth/login.html',
+      template: path.resolve(__dirname, 'src/views/auth/login.html'),
+      ...htmlWebpackPluginConfig,
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Register',
+      filename: 'auth/register.html',
+      template: path.resolve(__dirname, 'src/views/auth/register.html'),
       ...htmlWebpackPluginConfig,
     }),
 
