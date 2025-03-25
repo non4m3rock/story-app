@@ -66,7 +66,7 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      title: 'Add Story',
+      title: 'Profil',
       filename: 'profil.html',
       template: path.resolve(__dirname, 'src/views/profil.html'),
       ...htmlWebpackPluginConfig,

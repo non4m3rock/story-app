@@ -23,7 +23,9 @@ class CardHome extends LitWithoutShadowDom {
           <div class="col">
             ${this.content}<br />
             <div class="container-fluid">
-              <div id="storyCards" class="row row-cols-1 row-cols-md-2"></div>
+              <div id="storyCards" class="row row-cols-1 row-cols-md-4">
+                </div>
+              </div>
             </div>
           </div>
         </div>

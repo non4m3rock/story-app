@@ -26,7 +26,8 @@ class NavLinkAuth extends LitWithoutShadowDom {
           <span id="nameUserLogged"></span>
         </a>
         <ul class="dropdown-menu">
-          <a class="dropdown-item" id="userLogOut" @click=${this._userLogout}> Keluar </a>
+          <a class="dropdown-item" id="userLogOut" @click=${this._userLogOut}> ${'Keluar'} </a>
+        </ul>
         </ul>
       </li>
     `;
@@ -36,6 +37,7 @@ class NavLinkAuth extends LitWithoutShadowDom {
     event.preventDefault();
     Utils.destroyUserToken(Config.USER_TOKEN_KEY);
     CheckUserAuth.checkLoginState();
+    window.location.href = '/';
   }
 }
 

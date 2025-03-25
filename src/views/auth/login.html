@@ -6,8 +6,6 @@
 
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 
-    <!-- <link rel="stylesheet" href="main.css" /> -->
-
     <title><%= htmlWebpackPlugin.options.title %> | Story App</title>
   </head>
   <body>
@@ -18,6 +16,7 @@
             <h1 class="text-center">Login</h1>
 
             <form id="loginForm" novalidate>
+              <div id="loginError" style="color: red; margin-bottom: 10px"></div>
               <div class="mb-3">
                 <label for="validationCustomRecordEmail" class="form-label">Email</label>
                 <input-with-validation
@@ -38,6 +37,11 @@
                 ></input-with-validation>
               </div>
 
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="showPassword" />
+                <label class="form-check-label" for="showPassword">Lihat Password</label>
+              </div>
+
               <div class="col-12 text-end">
                 <button class="btn btn-primary" type="submit">Submit</button>
               </div>
@@ -45,6 +49,8 @@
 
             <div class="mt-4 text-center">
               Belum punya akun? <a href="/auth/register.html">Register</a>
+              <br />
+              <a href="/auth/forgot-password.html">Lupa Password?</a>
             </div>
           </div>
         </div>

@@ -6,18 +6,18 @@
 
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 
-    <!-- <link rel="stylesheet" href="main.css" /> -->
-
-    <title><%= htmlWebpackPlugin.options.title %> | Story App</title>
+    <title><%= htmlWebpackPlugin.options.title %> | Register</title>
   </head>
   <body>
     <main class="min-vh-100 d-flex">
       <div class="m-auto container py-5">
         <div class="row justify-content-center">
           <div class="col-12 col-md-6 col-lg-4">
-            <h1 class="text-center">Registrasi</h1>
+            <h1 class="text-center">Register</h1>
 
             <form id="registerForm" novalidate>
+              <div id="registerError" style="color: red; margin-bottom: 10px"></div>
+
               <div class="mb-3">
                 <label for="validationCustomRecordName" class="form-label">Nama</label>
                 <input-with-validation
@@ -48,8 +48,13 @@
                 ></input-with-validation>
               </div>
 
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="showPassword" />
+                <label class="form-check-label" for="showPassword">Lihat Password</label>
+              </div>
+
               <div class="col-12 text-end">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit">Register</button>
               </div>
             </form>
 

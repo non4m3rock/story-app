@@ -4,8 +4,8 @@ import CheckUserAuth from '../auth/check-user-auth';
 const Register = {
   async init() {
     CheckUserAuth.checkLoginState();
-
     this._initialListener();
+    this._addShowPasswordToggle();
   },
 
   _initialListener() {
@@ -25,6 +25,11 @@ const Register = {
 
   async _getRegistered() {
     const formData = this._getFormData();
+    const registerError = document.querySelector('#registerError');
+
+    if (registerError) {
+      registerError.textContent = '';
+    }
 
     if (this._validateFormData({ ...formData })) {
       console.log('formData');
@@ -36,10 +41,18 @@ const Register = {
           email: formData.email,
           password: formData.password,
         });
+
         window.alert('Registered a new user');
         this._goToLoginPage();
       } catch (error) {
-        console.error(error);
+        console.error('Registration failed:', error);
+        if (registerError) {
+          if (error.response && error.response.data && error.response.data.message) {
+            registerError.textContent = error.response.data.message;
+          } else {
+            registerError.textContent = 'Registrasi gagal. Silakan coba lagi.';
+          }
+        }
       }
     }
   },
@@ -49,6 +62,11 @@ const Register = {
     const email = document.querySelector('#validationCustomEmail');
     const password = document.querySelector('#validationCustomPassword');
 
+    if (password.value.length < 8) {
+      window.alert('Password harus minimal 8 karakter.');
+      return null;
+    }
+
     return {
       name: name.value,
       email: email.value,
@@ -57,13 +75,28 @@ const Register = {
   },
 
   _validateFormData(formData) {
+    if (!formData) {
+      return false;
+    }
     const formDataFiltered = Object.values(formData).filter((item) => item === '');
-
     return formDataFiltered.length === 0;
   },
 
+  _addShowPasswordToggle() {
+    const showPasswordCheckbox = document.querySelector('#showPassword');
+    const passwordInput = document.querySelector('#validationCustomPassword');
+
+    showPasswordCheckbox.addEventListener('change', function () {
+      if (this.checked) {
+        passwordInput.type = 'text';
+      } else {
+        passwordInput.type = 'password';
+      }
+    });
+  },
+
   _goToLoginPage() {
-    window.location.href = '/auth/login.html';
+    window.location.href = '/';
   },
 };
 

@@ -35,7 +35,7 @@ class InputRadioWithValidation extends LitWithoutShadowDom {
   render() {
     return html`
       ${this.listRadio.map((item) => {
-        return html`
+    return html`
           <radio-item
             inputId=${item.inputId}
             value=${item.value}
@@ -46,7 +46,7 @@ class InputRadioWithValidation extends LitWithoutShadowDom {
             @input=${(e) => (this.value = e.target.value)}
           />
         `;
-      })}
+  })}
       ${this._validFeedbackTemplate()}
       <div class="invalid-feedback">${this.invalidFeedbackMessage}</div>
     `;

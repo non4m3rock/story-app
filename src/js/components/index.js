@@ -4,6 +4,7 @@ import './NavApp';
 import './NavLinks';
 import './NavLink';
 import './NavLinkAuth';
+import './loading-indicator';
 import './FooterApp';
 
 import './form/InputWithValidation';

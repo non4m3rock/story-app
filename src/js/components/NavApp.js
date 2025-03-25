@@ -29,17 +29,26 @@ class NavApp extends LitWithoutShadowDom {
             data-bs-target="#offcanvasTop"
             aria-controls="offcanvasTop"
           >
-            三
+            ☰
           </button>
-          <h5 id="offcanvasTopLabel" class="navbar-brand">${this.brandName}</h5>
+          <h5 class="navbar-brand">${this.brandName}</h5>
           <div
-            class="offcanvas offcanvas-top bg-dark"
+            class="offcanvas offcanvas-top bg-dark text-white"
             tabindex="-1"
             id="offcanvasTop"
             aria-labelledby="offcanvasTopLabel"
           >
             <div class="offcanvas-header">
-              <div class="offcanvas-body"><nav-links></nav-links></div>
+              <h5 class="offcanvas-title" id="offcanvasTopLabel">Menu</h5>
+              <button
+                type="button"
+                class="btn-close text-reset text-white"
+                data-bs-dismiss="offcanvas"
+                aria-label="Tutup"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <nav-links></nav-links>
             </div>
           </div>
         </div>

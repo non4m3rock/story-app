@@ -1,0 +1,39 @@
+@use 'variables.scss' as v;
+@use 'mixins.scss' as m;
+
+.loading-container {
+  @include m.flex-center;
+  @include m.full-screen-fixed;
+  background-color: v.$loading-bg-color;
+  z-index: 1000;
+
+  .spinner-border {
+    display: inline-block;
+    width: v.$spinner-width;
+    height: v.$spinner-height;
+    vertical-align: v.$spinner-vertical-align;
+    border: v.$spinner-border-width solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border v.$spinner-animation-speed linear infinite;
+    -webkit-animation: spinner-border v.$spinner-animation-speed linear infinite;
+  }
+
+  .spinner-border-sm {
+    display: inline-block;
+    width: v.$spinner-width-sm;
+    height: v.$spinner-height-sm;
+    vertical-align: v.$spinner-vertical-align;
+    border: v.$spinner-border-width-sm solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border v.$spinner-animation-speed linear infinite;
+    -webkit-animation: spinner-border v.$spinner-animation-speed linear infinite;
+  }
+}
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg) /* rtl:ignore */;
+  }
+}

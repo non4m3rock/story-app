@@ -14,11 +14,15 @@
     <header>
       <nav-app brandName="<%= brandName %>"></nav-app>
     </header>
-
     <main>
       <div class="container mt-5">
         <h2 class="mb-4">Tambah Cerita Baru</h2>
         <form id="addStoryForm" class="needs-validation p-4 border rounded" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="name" required />
+            <div class="invalid-feedback">Nama wajib diisi.</div>
+          </div>
           <div class="mb-3">
             <label for="description" class="form-label">Deskripsi</label>
             <textarea class="form-control" id="description" rows="5" required></textarea>
@@ -29,6 +33,11 @@
             <input type="file" class="form-control" id="photo" accept="image/*" required />
             <div class="form-text">Pilih foto dengan format JPG, PNG, atau GIF.</div>
             <div class="invalid-feedback">Foto wajib dipilih.</div>
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Tanggal Pembuatan</label>
+            <input type="date" class="form-control" id="date" required />
+            <div class="invalid-feedback">Tanggal wajib dipilih.</div>
           </div>
           <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary">Tambah</button>

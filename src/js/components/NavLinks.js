@@ -6,13 +6,13 @@ class NavLinks extends LitWithoutShadowDom {
     return html`
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-          <a class="nav-link text-white" href="/">Home</a>
+          <nav-link to="/" content="Home"></nav-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="addstory.html">Add Story</a>
+          <nav-link to="addstory.html" content="Add Story" "color-text"></nav-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="profil.html">Profil</a>
+          <nav-link to="profil.html" content="Profil"></nav-link>
         </li>
         <li class="nav-item">
           <nav-link-auth class="d-none" id="userLoggedMenu"></nav-link-auth>

@@ -1,79 +1,78 @@
-// import CheckUserAuth from './pages/auth/check-user-auth';
+import CheckUserAuth from './pages/auth/check-user-auth';
+import Story from './network/story';
 
 const AddStory = {
   async init() {
-    // CheckUserAuth.checkLoginState();
-    // this._setupForm();
-    this._setupBootstrapValidation(); // Tambahkan ini
+    CheckUserAuth.checkLoginState();
+    this._initialUI();
+    this._initialListener();
   },
 
-  // _setupForm() {
-  //   document.getElementById('addStoryForm').addEventListener('submit', (event) => {
-  //     event.preventDefault();
-  //     if (document.getElementById('addStoryForm').checkValidity()) {
-  //       // Hanya panggil _addStory jika formulir valid
-  //       this._addStory();
-  //     }
-  //   });
-  // },
+  _initialUI() {
+    // Inisialisasi input tanggal dan waktu dengan tanggal dan waktu saat ini
+    const dateInput = document.querySelector('#date');
+    const now = new Date();
+    const formattedDate = now.toISOString().slice(0, 16); // Format: YYYY-MM-DDTHH:mm
+    dateInput.value = formattedDate;
 
-  // async _addStory() {
-  //   const description = document.getElementById('description').value;
-  //   const photo = document.getElementById('photo').files[0];
+    // Anda bisa menambahkan inisialisasi lainnya di sini jika diperlukan
+  },
 
-  //   if (photo) {
-  //     const reader = new FileReader();
+  _initialListener() {
+    const addStoryForm = document.querySelector('#addStoryForm');
+    addStoryForm.addEventListener(
+      'submit',
+      (event) => {
+        event.preventDefault();
+        event.stopPropagation();
 
-  //     reader.onload = async (e) => {
-  //       const photoBase64 = e.target.result;
-  //       try {
-  //         const response = await fetch('/data/DATA.json', {
-  //           method: 'POST',
-  //           headers: {
-  //             'Content-Type': 'application/json',
-  //           },
-  //           body: JSON.stringify({ description: description, photo: photoBase64 }),
-  //         });
+        addStoryForm.classList.add('was-validated');
+        this._sendPost();
+      },
+      false,
+    );
+  },
 
-  //         if (!response.ok) {
-  //           throw new Error(`HTTP error! status: ${response.status}`);
-  //         }
+  async _sendPost() {
+    const formData = this._getFormData();
 
-  //         const data = await response.json();
-  //         console.log('Sukses:', data);
-  //         alert('Cerita berhasil ditambahkan!');
-  //         document.getElementById('addStoryForm').reset(); // Reset form setelah sukses
-  //       } catch (error) {
-  //         console.error('Error:', error);
-  //         alert('Gagal menambahkan cerita. Silakan coba lagi.');
-  //       }
-  //     };
+    if (this._validateFormData({ ...formData })) {
+      console.log('formData');
+      console.log(formData);
 
-  //     reader.readAsDataURL(photo);
-  //   } else {
-  //     alert('Mohon pilih foto.');
-  //   }
-  // },
+      try {
+        const response = await Story.store(formData);
+        window.alert('Cerita baru berhasil ditambahkan');
+        this._goToDashboardPage();
+      } catch (error) {
+        console.error(error);
+        alert('Gagal menambahkan cerita. Silakan coba lagi.');
+      }
+    }
+  },
 
-  _setupBootstrapValidation() {
-    (function () {
-      'use strict';
-      const forms = document.querySelectorAll('.needs-validation');
-      Array.prototype.slice.call(forms).forEach(function (form) {
-        form.addEventListener(
-          'submit',
-          function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          },
-          false,
-        );
-      });
-    })();
+  _getFormData() {
+    const nameInput = document.querySelector('#name');
+    const descriptionInput = document.querySelector('#description');
+    const photoInput = document.querySelector('#photo');
+    const dateInput = document.querySelector('#date');
+
+    return {
+      name: nameInput.value,
+      description: descriptionInput.value,
+      photo: photoInput.files[0],
+      date: new Date(dateInput.value),
+    };
+  },
+
+  _validateFormData(formData) {
+    const formDataFiltered = Object.values(formData).filter((item) => item === '');
+    return formDataFiltered.length === 0;
+  },
+
+  _goToDashboardPage() {
+    window.location.href = '/';
   },
 };
 
-AddStory.init();
+export default AddStory;

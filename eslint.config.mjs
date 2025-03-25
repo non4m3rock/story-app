@@ -1,18 +1,13 @@
-import { defineConfig } from 'eslint/config';
 import globals from 'globals';
-import js from '@eslint/js';
+import pluginJs from '@eslint/js';
 import daStyle from 'eslint-config-dicodingacademy';
 
-export default defineConfig([
-  { files: ['**/*.{js,mjs,cjs}'] },
-  {
-    files: ['**/*.{js,mjs,cjs}'],
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
-  },
-  { files: ['**/*.{js,mjs,cjs}'], plugins: { js }, extends: ['js/recommended'] },
-
+export default [
+  { languageOptions: { globals: globals.browser } },
+  { languageOptions: { globals: { ...globals.node } } },
+  pluginJs.configs.recommended,
   daStyle,
   {
     rules: { 'linebreak-style': 'off' },
   },
-]);
+];

@@ -33,7 +33,6 @@ $blue: red; // Contoh override warna biru menjadi merah
 @import '~bootstrap/scss/images';
 @import '~bootstrap/scss/containers';
 @import '~bootstrap/scss/grid';
-
 @import '~bootstrap/scss/helpers';
 
 // Komponen-Komponen
@@ -46,6 +45,7 @@ $blue: red; // Contoh override warna biru menjadi merah
 @import '~bootstrap/scss/navbar'; // Requires nav
 @import '~bootstrap/scss/card';
 @import '~bootstrap/scss/close';
+@import '~bootstrap/scss/spinners';
 @import '~bootstrap/scss/offcanvas';
 @import '~bootstrap/scss/modal'; // Requires transitions
 

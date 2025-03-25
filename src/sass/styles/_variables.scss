@@ -17,3 +17,16 @@ $nav-link-hover-color: #007bff;
 $nav-link-hover-bg: #535454;
 $navbar-bg-color: #f8f9fa; // Warna latar belakang navbar (bg-light)
 $navbar-z-index: 100; // z-index navbar
+
+// Variabel untuk spinner
+$spinner-width: 2rem;
+$spinner-height: $spinner-width;
+$spinner-vertical-align: -0.125em;
+$spinner-border-width: 0.25em;
+$spinner-animation-speed: 0.75s;
+
+$spinner-width-sm: 1rem;
+$spinner-height-sm: $spinner-width-sm;
+$spinner-border-width-sm: 0.2em;
+
+$loading-bg-color: rgba(0, 0, 0, 0.5);
